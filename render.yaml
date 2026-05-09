@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: phia-gmass-mcp
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: GMASS_API_KEY
+        sync: false   # set this manually in the Render dashboard
+      - key: PORT
+        value: "8000"
+    healthCheckPath: /mcp
